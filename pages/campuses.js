@@ -9,7 +9,8 @@ export default function CampusesPage({ campuses, lastUpdateDate }) {
       <h1>Our Campuses</h1>
       {campuses.map(({ id, name }) => {
         return <li key={id}>{name}</li>;
-      })}
+      }
+      )}
     </Layout>
   );
 }
@@ -21,6 +22,7 @@ export async function getStaticProps() {
     props: {
       campuses,
       lastUpdateDate: currentDate
-    }
+    },
+    revalidate: 10,
   };
 }
